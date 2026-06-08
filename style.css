@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* بطاقة اللعبة الرئيسية */
+.game-container {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 35px 25px;
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(255, 182, 193, 0.4);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.gif-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px auto;
+}
+
+.main-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.question-text {
+    color: #ff4d6d;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.buttons-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 60px; /* لحماية الأبعاد عند هروب الزر */
+    position: relative;
+}
+
+/* الأزرار والتأثيرات البصرية للبثق الجميل */
+.btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.yes-btn {
+    background-color: #ff4d6d;
+    color: #ffffff;
+}
+
+.yes-btn:hover {
+    background-color: #ff758f;
+    transform: scale(1.05);
+}
+
+.no-btn {
+    background-color: #e0e0e0;
+    color: #424242;
+    position: absolute; /* ضروري لتمكين حركة الهروب الحر والذكي */
+    right: 40px;
+}
+
+/* شاشة النتيجة والتأثير الفاخر لها */
+.hidden {
+    display: none;
+}
+
+.result-text {
+    color: #ff4d6d;
+    font-size: 28px;
+    font-weight: 800;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}

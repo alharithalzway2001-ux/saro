@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سارو تحبيني لو لا؟</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&display=swap">
+</head>
+<body>
+
+    <!-- الحاوية الرئيسية للعبة التفاعلية -->
+    <div class="game-container" id="game-card">
+        
+        <!-- واجهة السؤال الأولى -->
+        <div id="question-screen">
+            <div class="gif-container">
+                <!-- صورة كرتونية لطيفة لقطط كرتونية مبهجة -->
+                <img src="https://media.tenor.com/w1-gVeeYbU4AAAAi/cute-cat.gif" alt="Cute Cats" class="main-gif">
+            </div>
+            <h1 class="question-text">سارو تحبيني لو لا؟</h1>
+            <div class="buttons-group">
+                <button id="yes-btn" class="btn yes-btn">أي!</button>
+                <button id="no-btn" class="btn no-btn">لا</button>
+            </div>
+        </div>
+
+        <!-- واجهة النتيجة الثانية بعد الضغط على أي -->
+        <div id="result-screen" class="hidden">
+            <div class="gif-container">
+                <!-- صورة نبضات قلب حب كرتونية مبهجة ومتحركة -->
+                <img src="https://media.tenor.com/6wnf888Bv78AAAAi/heart-love.gif" alt="Love Heart" class="main-gif">
+            </div>
+            <h1 class="result-text">حتى أنا ❤️</h1>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
