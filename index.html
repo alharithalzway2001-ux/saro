@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سارو تحبيني لو لا؟</title>
+    <title>سارو تحبيني 🥹</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&display=swap">
 </head>
 <body>
 
-    <!-- حاوية اللعبة التفاعلية -->
+    <!-- الحاوية الرئيسية للبطاقة التفاعلية -->
     <div class="game-container" id="game-card">
         
-        <!-- واجهة السؤال المحدثة -->
+        <!-- الواجهة الأولى (السؤال الرئيسي) -->
         <div id="question-screen">
             <div class="gif-container">
-                <!-- الستيكر الأول: tonton friends اللطيفين معاً للبداية (تم استخدام رابط .gif المباشر) -->
-                <img src="https://media.tenor.com/tHqgU7E6mzoAAAAj/tonton-friends-tonton.gif" alt="Tonton Friends Together" id="dynamic-gif" class="main-gif">
+                <!-- الستيكر الأول محلي من المجلد مباشرة -->
+                <img src="start.gif" alt="Tonton Friends" id="dynamic-gif" class="main-gif">
             </div>
-            <!-- تم تحديث نص السؤال هنا بناءً على طلب المستخدم -->
             <h1 class="question-text">سارو تحبيني 🥹</h1>
             <div class="buttons-group">
                 <button id="yes-btn" class="btn yes-btn">أي!</button>
@@ -26,11 +25,11 @@
             </div>
         </div>
 
-        <!-- واجهة النتيجة عند الضغط على أي -->
+        <!-- الواجهة الثانية (النتيجة بعد الضغط على أي!) -->
         <div id="result-screen" class="hidden">
             <div class="gif-container">
-                <!-- الستيكر الأخير: الكلب اللطيف المبتهج بوجنتين حمراوين (تم استخدام رابط .gif المباشر) -->
-                <img src="https://media.tenor.com/vHqgU9E6mzoAAAAj/tonton-friends-chubby.gif" alt="Tonton Friends Happy Dog" class="main-gif">
+                <!-- الستيكر الثالث محلي من المجلد مباشرة -->
+                <img src="success.gif" alt="Tonton Friends Success" class="main-gif">
             </div>
             <h1 class="result-text">حتى أنا ❤️</h1>
         </div>

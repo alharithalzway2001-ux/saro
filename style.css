@@ -18,17 +18,17 @@ body {
 .game-container {
     background: #ffffff;
     border-radius: 24px;
-    padding: 35px 25px;
+    padding: 40px 25px;
     width: 100%;
-    max-width: 360px;
+    max-width: 350px;
     text-align: center;
     box-shadow: 0 15px 35px rgba(255, 182, 193, 0.4);
     position: relative;
 }
 
 .gif-container {
-    width: 170px; /* تم زيادة العرض قليلاً لاستيعاب حركة الستيكر */
-    height: 170px;
+    width: 150px;
+    height: 150px;
     margin: 0 auto 25px auto;
     display: flex;
     justify-content: center;
@@ -46,21 +46,20 @@ body {
     font-size: 24px;
     font-weight: 800;
     margin-bottom: 35px;
-    line-height: 1.4;
 }
 
 .buttons-group {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
     min-height: 60px;
+    position: relative;
 }
 
 .btn {
-    width: 100px;
-    height: 48px;
-    font-size: 18px;
+    height: 46px;
+    font-size: 16px;
     font-weight: 700;
     border: none;
     border-radius: 50px;
@@ -69,13 +68,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.1s ease, background-color 0.2s ease;
+    white-space: nowrap;
+    padding: 0 20px;
 }
 
 .yes-btn {
+    width: 100px;
     background-color: #ff4d6d;
     color: #ffffff;
     z-index: 5;
+    transition: transform 0.1s ease, background-color 0.2s ease;
 }
 
 .yes-btn:hover {
@@ -84,9 +86,14 @@ body {
 }
 
 .no-btn {
+    min-width: 90px;
+    max-width: 190px;
+    width: auto;
     background-color: #e0e0e0;
     color: #424242;
     z-index: 10;
+    position: absolute;
+    right: 40px;
 }
 
 .hidden {
