@@ -27,9 +27,9 @@ body {
 }
 
 .gif-container {
-    width: 160px;
-    height: 160px;
-    margin: 0 auto 20px auto;
+    width: 170px; /* تم زيادة العرض قليلاً لاستيعاب حركة الستيكر */
+    height: 170px;
+    margin: 0 auto 25px auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,6 +46,7 @@ body {
     font-size: 24px;
     font-weight: 800;
     margin-bottom: 35px;
+    line-height: 1.4;
 }
 
 .buttons-group {
@@ -56,9 +57,8 @@ body {
     min-height: 60px;
 }
 
-/* الأزرار وتعديل العرض ليكون طبيعياً ومطابقاً للزرين */
 .btn {
-    width: 100px; /* تحديد عرض ثابت وطبيعي للزرين لمنع تمدد زر لا */
+    width: 100px;
     height: 48px;
     font-size: 18px;
     font-weight: 700;
@@ -87,7 +87,6 @@ body {
     background-color: #e0e0e0;
     color: #424242;
     z-index: 10;
-    transition: background-color 0.2s ease; /* حذف الانتقال الموضعي لجعل الهروب فورياً وقاطعاً */
 }
 
 .hidden {

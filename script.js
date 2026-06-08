@@ -4,16 +4,16 @@ const dynamicGif = document.getElementById('dynamic-gif');
 const questionScreen = document.getElementById('question-screen');
 const resultScreen = document.getElementById('result-screen');
 
-// رابط الستيكر الثاني (القطة التي تبكي في وسط بركة دموع) عند محاولة ضغط لا
-const cryingGifUrl = "https://media.tenor.com/v1gVeeYbU4AAAAi/tonton-friends-sad.gif";
+// رابط TENOR الـ .gif المباشر والموثوق للستيكر الثاني (القطة الباكية في بركة دموع)
+const cryingGifUrl = "https://media.tenor.com/v1gVeeYbU4AAAAj/tonton-friends-sad.gif";
 
 function escapeBtn() {
-    // 1. تغيير الستيكر فوراً لستيكر البكاء الحزين عند الاقتراب من زر لا
-    if (dynamicGif.src !== cryingGifUrl) {
+    // 1. تغيير الستيكر فوراً لستيكر البكاء المباشر والموثوق
+    if (!dynamicGif.src.includes('sad.gif')) {
         dynamicGif.src = cryingGifUrl;
     }
 
-    // 2. حساب أبعاد الشاشة لمنع خروج الزر عن الحدود المرئية للهاتف
+    // 2. حساب أبعاد الشاشة لهروب آمن داخل حدود الهاتف
     const padding = 30;
     const maxX = window.innerWidth - noBtn.offsetWidth - padding;
     const maxY = window.innerHeight - noBtn.offsetHeight - padding;
@@ -21,13 +21,13 @@ function escapeBtn() {
     const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
     const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
 
-    // 3. جعل الزر يهرب بشكل فوري وحر مع الحفاظ التام على أبعاده الطبيعية وعرضه الأصلي
+    // 3. هروب فوري وحر بنفس الحجم الطبيعي للزر
     noBtn.style.position = 'fixed';
     noBtn.style.left = randomX + 'px';
     noBtn.style.top = randomY + 'px';
 }
 
-// تشغيل تأثير الهروب وتغيير الصورة عند اللمس أو مرور المؤشر
+// تشغيل تأثير الهروب وتغيير الصورة
 noBtn.addEventListener('mouseenter', escapeBtn);
 noBtn.addEventListener('touchstart', (e) => {
     e.preventDefault();
