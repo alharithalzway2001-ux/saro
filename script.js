@@ -1,46 +1,43 @@
 const yesBtn = document.getElementById('yes-btn');
 const noBtn = document.getElementById('no-btn');
+const dynamicGif = document.getElementById('dynamic-gif');
 const questionScreen = document.getElementById('question-screen');
 const resultScreen = document.getElementById('result-screen');
-const container = document.getElementById('game-card');
 
-// مصفوفة كلمات لطيفة تتغير عند محاولة الضغط على "لا" (تزيد من طابع اللعبة الكوميدي والتفاعلي)
-const responses = ["لا", "مستحيل!", "فكر ثاني؟", "خطأ ❌", "حاول مجدداً"];
+// رابط الستيكر الثاني (القطة التي تبكي في وسط بركة دموع) عند محاولة ضغط لا
+const cryingGifUrl = "https://media.tenor.com/v1gVeeYbU4AAAAi/tonton-friends-sad.gif";
 
-// دالة ذكية تجعل زر "لا" يهرب في اتجاهات عشوائية داخل حدود الشاشة لمنع الضغط عليه تماماً
 function escapeBtn() {
-    // حساب الأبعاد والحدود القصوى المتاحة للهروب داخل مساحة الشاشة الحرة
-    const padding = 20;
+    // 1. تغيير الستيكر فوراً لستيكر البكاء الحزين عند الاقتراب من زر لا
+    if (dynamicGif.src !== cryingGifUrl) {
+        dynamicGif.src = cryingGifUrl;
+    }
+
+    // 2. حساب أبعاد الشاشة لمنع خروج الزر عن الحدود المرئية للهاتف
+    const padding = 30;
     const maxX = window.innerWidth - noBtn.offsetWidth - padding;
     const maxY = window.innerHeight - noBtn.offsetHeight - padding;
 
-    // توليد إحداثيات عشوائية بالكامل
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
+    const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+    const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
 
-    // نقل الزر ليكون خارج حدود الحاوية طالما يهرب لمنع محاصرته
+    // 3. جعل الزر يهرب بشكل فوري وحر مع الحفاظ التام على أبعاده الطبيعية وعرضه الأصلي
     noBtn.style.position = 'fixed';
     noBtn.style.left = randomX + 'px';
     noBtn.style.top = randomY + 'px';
-    
-    // تغيير الكلمة بشكل دوري للمرح
-    const randomIndex = Math.floor(Math.random() * responses.length);
-    noBtn.innerText = responses[randomIndex];
 }
 
-// تشغيل الهروب الفوري عند الاقتراب بالماوس أو عند اللمس على الهواتف الذكية
+// تشغيل تأثير الهروب وتغيير الصورة عند اللمس أو مرور المؤشر
 noBtn.addEventListener('mouseenter', escapeBtn);
 noBtn.addEventListener('touchstart', (e) => {
-    e.preventDefault(); // منع سلوك النقرة الافتراضي لتفادي ملامسته
+    e.preventDefault();
     escapeBtn();
 });
 noBtn.addEventListener('click', escapeBtn);
 
-// عند الضغط على "أي!" المبهجة، الانتقال بسلاسة لواجهة "حتى أنا"
+// عند الضغط على أي! الانتقال لواجهة الكلب السعيد وعبارة حتى أنا
 yesBtn.addEventListener('click', () => {
     questionScreen.classList.add('hidden');
     resultScreen.classList.remove('hidden');
-    
-    // إخفاء زر "لا" تماماً من الشاشة بعد إتمام المهمة
     noBtn.style.display = 'none';
 });

@@ -15,7 +15,6 @@ body {
     padding: 20px;
 }
 
-/* بطاقة اللعبة الرئيسية */
 .game-container {
     background: #ffffff;
     border-radius: 24px;
@@ -25,13 +24,15 @@ body {
     text-align: center;
     box-shadow: 0 15px 35px rgba(255, 182, 193, 0.4);
     position: relative;
-    transition: all 0.3s ease;
 }
 
 .gif-container {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-gif {
@@ -44,33 +45,37 @@ body {
     color: #ff4d6d;
     font-size: 24px;
     font-weight: 800;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .buttons-group {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    min-height: 60px; /* لحماية الأبعاد عند هروب الزر */
-    position: relative;
+    gap: 25px;
+    min-height: 60px;
 }
 
-/* الأزرار والتأثيرات البصرية للبثق الجميل */
+/* الأزرار وتعديل العرض ليكون طبيعياً ومطابقاً للزرين */
 .btn {
-    padding: 12px 30px;
+    width: 100px; /* تحديد عرض ثابت وطبيعي للزرين لمنع تمدد زر لا */
+    height: 48px;
     font-size: 18px;
     font-weight: 700;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: transform 0.1s ease, background-color 0.2s ease;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s ease, background-color 0.2s ease;
 }
 
 .yes-btn {
     background-color: #ff4d6d;
     color: #ffffff;
+    z-index: 5;
 }
 
 .yes-btn:hover {
@@ -81,11 +86,10 @@ body {
 .no-btn {
     background-color: #e0e0e0;
     color: #424242;
-    position: absolute; /* ضروري لتمكين حركة الهروب الحر والذكي */
-    right: 40px;
+    z-index: 10;
+    transition: background-color 0.2s ease; /* حذف الانتقال الموضعي لجعل الهروب فورياً وقاطعاً */
 }
 
-/* شاشة النتيجة والتأثير الفاخر لها */
 .hidden {
     display: none;
 }
