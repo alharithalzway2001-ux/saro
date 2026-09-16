@@ -1,33 +1,28 @@
-const yesBtn = document.getElementById('yes-btn');
+const forgiveBtn = document.getElementById('forgive-btn');
 const noBtn = document.getElementById('no-btn');
-const dynamicGif = document.getElementById('dynamic-gif');
-const questionScreen = document.getElementById('question-screen');
-const resultScreen = document.getElementById('result-screen');
+const apologyScreen = document.getElementById('apology-screen');
+const successScreen = document.getElementById('success-screen');
+const card = document.getElementById('apology-card');
 
-// التسلسل الزمني للكلمات المطلوبة بدقة لزر لا
 const phrases = [
-    "ممكن",
-    "مرات اي و مرات لا",
-    "عندك خيار واحد عارفة وله",
-    "مزال بتكملي ؟",
-    "تصكير راس؟"
+    "أكيد؟ 🥺",
+    "فكري فيها تاني!",
+    "عشان خاطري ✨",
+    "الزعل مش حلو ليك",
+    "آخر كلام؟ 💔"
 ];
 
-let currentIndex = 0;
+let index = 0;
 
-// الرابط المرجعي المحلي للستيكر الثاني الحزين داخل مجلد المشروع
-const cryingGifUrl = "sad.gif";
+function escapeNoBtn() {
+    noBtn.innerText = phrases[index];
+    index = (index + 1) % phrases.length;
 
-function escapeBtn() {
-    // التغيير الفوري للستيكر ليكون الملف المحلي sad.gif
-    if (!dynamicGif.src.includes('sad.gif')) {
-        dynamicGif.src = cryingGifUrl;
-    }
+    card.classList.remove('shake');
+    void card.offsetWidth;
+    card.classList.add('shake');
 
-    noBtn.innerText = phrases[currentIndex];
-    currentIndex = (currentIndex + 1) % phrases.length;
-
-    const padding = 40;
+    const padding = 30;
     const maxX = window.innerWidth - noBtn.offsetWidth - padding;
     const maxY = window.innerHeight - noBtn.offsetHeight - padding;
 
@@ -39,18 +34,35 @@ function escapeBtn() {
     noBtn.style.top = randomY + 'px';
 }
 
-noBtn.addEventListener('mouseenter', escapeBtn);
+noBtn.addEventListener('mouseenter', escapeNoBtn);
 noBtn.addEventListener('touchstart', (e) => {
     e.preventDefault();
-    escapeBtn();
-});
-noBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    escapeBtn();
+    escapeNoBtn();
 });
 
-yesBtn.addEventListener('click', () => {
-    questionScreen.classList.add('hidden');
-    resultScreen.classList.remove('hidden');
+forgiveBtn.addEventListener('click', () => {
+    apologyScreen.classList.add('hidden');
+    successScreen.classList.remove('hidden');
     noBtn.style.display = 'none';
+
+    const duration = 5 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
+
+    function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+            return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+    }, 250);
 });
