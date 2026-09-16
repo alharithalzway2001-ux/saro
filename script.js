@@ -3,6 +3,7 @@ const noBtn = document.getElementById('no-btn');
 const apologyScreen = document.getElementById('apology-screen');
 const successScreen = document.getElementById('success-screen');
 const card = document.getElementById('apology-card');
+const apologyImg = document.getElementById('apology-img');
 
 const phrases = [
     "أكيد؟ 🥺",
@@ -15,6 +16,11 @@ const phrases = [
 let index = 0;
 
 function escapeNoBtn() {
+    // تغيير الستيكر إلى sad.gif فور محاولة الضغط أو الاقتراب من زر الرفض
+    if (!apologyImg.src.includes('sad.gif')) {
+        apologyImg.src = 'sad.gif';
+    }
+
     noBtn.innerText = phrases[index];
     index = (index + 1) % phrases.length;
 
@@ -45,6 +51,7 @@ forgiveBtn.addEventListener('click', () => {
     successScreen.classList.remove('hidden');
     noBtn.style.display = 'none';
 
+    // إطلاق الألعاب النارية والقصاصات الملونة
     const duration = 5 * 1000;
     const animationEnd = Date.now() + duration;
     const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
